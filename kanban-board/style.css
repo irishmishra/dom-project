@@ -80,6 +80,11 @@ section .task-colmun {
   display: flex;
   flex-direction: column;
   gap: var(--padding-l);
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+section .task-colmun.hover-over {
+  border: 2px dashed var(--text-seconadry);
+  scale: 1.04;
 }
 section .task-colmun .heading {
   display: flex;
