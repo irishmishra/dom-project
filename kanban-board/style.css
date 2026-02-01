@@ -77,9 +77,31 @@ section .task-colmun {
   color: var(--text-primery);
   flex-grow: 1;
   border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-l);
 }
 section .task-colmun .heading {
   display: flex;
   justify-content: space-between;
   padding: var(--padding-xxl);
+}
+section .task-colmun .task {
+  background-color: var(--bg-primery);
+  margin: var(--padding-l);
+  padding: var(--padding-l);
+  border-radius: var(--radius-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-m);
+}
+section .task-colmun .task button {
+  align-self: flex-end;
+  padding: var(--padding-m);
+  border: none;
+  outline: none;
+  background-color: #d73a49;
+  color: var(--text-primery);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
 }
