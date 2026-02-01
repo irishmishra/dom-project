@@ -34,3 +34,36 @@ function hover(colmuns) {
 hover(todo);
 hover(progress);
 hover(done);
+
+const taskBtn = document.querySelector("#toggle-modal");
+const modal = document.querySelector(".modal.add-task");
+const bg = document.querySelector(".modal.add-task .bg");
+
+taskBtn.addEventListener("click", () => {
+  modal.classList.add("active");
+});
+
+bg.addEventListener("click", () => {
+  modal.classList.remove("active");
+});
+
+const addTaskBtn = document.querySelector("#add-task");
+
+addTaskBtn.addEventListener("click", (e) => {
+  const taskInput = document.querySelector("#text-input");
+  const taskDiscription = document.querySelector("#task-discription");
+
+  const taskDiv = document.createElement("div");
+  taskDiv.classList.add("task");
+  taskDiv.setAttribute("draggable", "true");
+
+  taskDiv.innerHTML = `<h2 class="task-head">${taskInput.value}</h2>
+            <p class="task-discription">
+              ${taskDiscription.value}
+            </p>
+            <button class="delete-btn">Delete</button>
+          `;
+  todo.appendChild(taskDiv);
+  dargItem = taskDiv;
+  modal.classList.remove("active");
+});
