@@ -29,6 +29,12 @@ function hover(colmuns) {
     e.preventDefault();
     colmuns.classList.remove("hover-over");
     colmuns.appendChild(dargItem);
+
+    [todo, progress, done].forEach((colmuns) => {
+      const tasksInColmuns = colmuns.querySelectorAll(".task").length;
+      const countDiv = colmuns.querySelector(".right");
+      countDiv.textContent = tasksInColmuns;
+    });
   });
 }
 hover(todo);
@@ -64,6 +70,26 @@ addTaskBtn.addEventListener("click", (e) => {
             <button class="delete-btn">Delete</button>
           `;
   todo.appendChild(taskDiv);
-  dargItem = taskDiv;
+  const countr = [todo, progress, done];
+  countr.forEach((colmuns) => {
+    const tasksInColmuns = colmuns.querySelectorAll(".task").length;
+    const countDiv = colmuns.querySelector(".right");
+    countDiv.textContent = tasksInColmuns;
+  });
+  taskDiv.addEventListener("drag", (e) => {
+    dargItem = taskDiv;
+  });
+
   modal.classList.remove("active");
+
+  const deleteBtn = taskDiv.querySelector(".delete-btn");
+  deleteBtn.addEventListener("click", () => {
+    taskDiv.remove();
+    const countr = [todo, progress, done];
+    countr.forEach((colmuns) => {
+      const tasksInColmuns = colmuns.querySelectorAll(".task").length;
+      const countDiv = colmuns.querySelector(".right");
+      countDiv.textContent = tasksInColmuns;
+    });
+  });
 });
