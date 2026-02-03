@@ -5,6 +5,7 @@ const addNewTaskBtn = document.querySelector("#add-new-task");
 
 let dargItem = null;
 
+let taskData = {};
 const tasks = document.querySelectorAll(".task");
 
 tasks.forEach((task) => {
@@ -72,6 +73,16 @@ addTaskBtn.addEventListener("click", (e) => {
   todo.appendChild(taskDiv);
   const countr = [todo, progress, done];
   countr.forEach((colmuns) => {
+    taskData[colmuns.id] = Array.from(tasks).map((t) => {
+      return {
+        tasks: t.querySelector("h2").innerText,
+        desc: t.querySelector("p").innerText,
+      };
+    });
+
+    localStorage.setItem("tasks", JSON.stringify(taskData));
+    console.log(taskData);
+
     const tasksInColmuns = colmuns.querySelectorAll(".task").length;
     const countDiv = colmuns.querySelector(".right");
     countDiv.textContent = tasksInColmuns;
@@ -85,11 +96,5 @@ addTaskBtn.addEventListener("click", (e) => {
   const deleteBtn = taskDiv.querySelector(".delete-btn");
   deleteBtn.addEventListener("click", () => {
     taskDiv.remove();
-    const countr = [todo, progress, done];
-    countr.forEach((colmuns) => {
-      const tasksInColmuns = colmuns.querySelectorAll(".task").length;
-      const countDiv = colmuns.querySelector(".right");
-      countDiv.textContent = tasksInColmuns;
-    });
   });
 });
