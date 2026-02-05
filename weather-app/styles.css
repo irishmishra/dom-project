@@ -8,6 +8,7 @@ body {
   width: 100%;
   height: 100%;
   font-family: "Arial", sans-serif;
+  background-color: var(--bg-primary);
 }
 :root {
   --bg-primary: #0f0f0f;
@@ -28,47 +29,57 @@ body {
   --padding-m: 16px;
   --padding-l: 24px;
   --padding-xl: 32px;
+  --padding-xxl: 40px;
 }
-body {
-  background-color: var(--bg-primary);
+
+main nav {
+  display: flex;
+  padding: var(--padding-l);
+  justify-content: space-between;
+  align-items: center;
+}
+main nav .left {
   color: var(--text-primary);
-  line-height: 1.6;
+  font-size: 1.5rem;
 }
-main {
+main nav .right button {
+  background-color: var(--accent-color);
+  color: var(--text-primary);
+  border: none;
+  outline: none;
+  padding: var(--padding-s) var(--padding-m);
+  border-radius: var(--radius-s);
+  cursor: pointer;
+  font-weight: bold;
+}
+main nav .right input {
+  padding: var(--padding-s);
+  border-radius: var(--radius-s);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+}
+section {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-main h1 {
-  font-size: 2.5rem;
-  margin-bottom: var(--padding-l);
-  text-align: center;
-}
-main section form {
+.results {
   display: flex;
-  width: 100%;
-  gap: var(--padding-m);
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: var(--padding-xxl);
+  align-items: center;
 }
-main section .input-text {
-  padding: var(--padding-m);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-m);
-  background-color: var(--bg-secondary);
+.city {
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding-xl);
   color: var(--text-primary);
-  width: 100%;
-  box-shadow: 0 2px 4px var(--shadow-color);
-  transition: border-color 0.3s ease;
 }
-button {
-  background-color: var(--accent-color);
-  color: var(--text-primary);
-  border: none;
-  padding: var(--padding-m);
-  border-radius: var(--radius-m);
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-button:hover {
-  background-color: darken(var(--accent-color), 10%);
+.others {
+  color: var(--text-secondary);
+  display: flex;
+  gap: var(--padding-l);
 }
