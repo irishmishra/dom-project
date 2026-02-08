@@ -3,13 +3,6 @@ const result = document.getElementById("result");
 const city = document.querySelector("#city");
 btn.addEventListener("click", getWeather);
 
-city.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    getWeather();
-  }
-});
-
 async function getWeather() {
   const city = document.getElementById("city").value;
   const key = "01904dfdcfc5484691f52620260502";
