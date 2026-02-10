@@ -11,7 +11,7 @@ body {
   background-color: var(--bg-primary);
 }
 :root {
-  --bg-primary: #0f0f0f;
+  --bg-primary: #420202;
   --bg-secondary: #1a1a1a;
   --text-primary: #ffffff;
   --text-secondary: #b3b3b3;
